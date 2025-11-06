@@ -76,6 +76,8 @@ export default function DadosScreen() {
   );
 }
 
+// TESTE TESTANDO.
+
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
