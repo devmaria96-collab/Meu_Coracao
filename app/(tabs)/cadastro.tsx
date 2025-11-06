@@ -90,7 +90,7 @@ export default function CadastroScreen() {
                   dropdownIconColor="#000000"
                   style={styles.picker}
                 >
-                  <Picker.Item label="Selecione" value={undefined} color="Black " />
+                  <Picker.Item label="Selecione" value={undefined} color="#000000" />
                   {[
                     "Hipertensão",
                     "Arritmia",
@@ -148,7 +148,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: "hidden",
   },
-  // única alteração: fundo escuro + remove borda interna no Web
   picker: {
     color: "#fff",
     height: 44,
@@ -185,4 +184,3 @@ const styles = StyleSheet.create({
   googleText: { color: "#fff", fontSize: 15, fontWeight: "600" },
   disclaimer: { color: "#9CA3AF", textAlign: "center", marginTop: 18, lineHeight: 20 },
 });
- 

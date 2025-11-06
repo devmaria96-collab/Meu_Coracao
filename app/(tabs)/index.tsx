@@ -1,4 +1,4 @@
-// Arquivo: app/index.tsx
+// Arquivo: app/(tabs)/index.tsx
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { Pressable, SafeAreaView, StyleSheet, Text, View } from "react-native";

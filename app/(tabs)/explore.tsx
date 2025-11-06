@@ -1,14 +1,23 @@
+import { router } from "expo-router";
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen() {
   const cards = [
-    { id: 1, title: "Remédios", icon: "💊", route: "/remedios" },
-    { id: 2, title: "Alergias", icon: "🩸", route: "/alergias" },
-    { id: 3, title: "Agenda", icon: "📅", route: "/agenda" },
-    { id: 4, title: "Laudos", icon: "🧬", route: "/laudos" },
-    { id: 5, title: "Emocional", icon: "💗", route: "/emocional" },
-    { id: 6, title: "Meu Coração", icon: "💗", route: "/meu-coracao" },
+    { id: 1, title: "Agenda", icon: "📅", route: "/agenda" },
+    { id: 2, title: "Laudos", icon: "📋", route: "/laudos" },
+    { id: 3, title: "Emocional", icon: "💗", route: "/emocional" },
+    { id: 4, title: "Remédios", icon: "💊", route: "/remedios" },
+    { id: 5, title: "Alergias", icon: "🩸", route: "/alergias" },
+    { id: 6, title: "Meus Dados", icon: "👤", route: "/dados" },
   ];
+
+  const handleCardPress = (card: any) => {
+    if (card.route) {
+      router.push(card.route);
+    } else {
+      alert(`${card.title} - Em breve!`);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -20,10 +29,11 @@ export default function HomeScreen() {
             <Pressable
               key={card.id}
               style={({ pressed }) => [styles.card, pressed && { opacity: 0.7, transform: [{ scale: 0.98 }] }]}
-              onPress={() => console.log(`Navegando para ${card.route}`)}
+              onPress={() => handleCardPress(card)}
             >
               <Text style={styles.icon}>{card.icon}</Text>
               <Text style={styles.cardTitle}>{card.title}</Text>
+              {!card.route && <Text style={styles.badge}>Em breve</Text>}
             </Pressable>
           ))}
         </View>
@@ -71,5 +81,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     textAlign: "center",
+  },
+  badge: {
+    marginTop: 8,
+    backgroundColor: "#DC143C",
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 12,
+    fontSize: 11,
+    color: "#FFFFFF",
+    fontWeight: "600",
   },
 });

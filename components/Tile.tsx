@@ -3,14 +3,14 @@ import { ReactNode } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 type Props = {
-  href: string;
+  href: any;
   label: string;
   icon?: ReactNode;
 };
 
 export default function Tile({ href, label, icon }: Props) {
   return (
-    <Link href={href} asChild>
+    <Link href={href as any} asChild>
       <TouchableOpacity
         style={{
           backgroundColor: '#1f1a20',
